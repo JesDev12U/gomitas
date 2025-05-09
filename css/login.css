@@ -1,0 +1,117 @@
+
+.login-box {
+  background: #fff6f6;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(252, 108, 108, 0.18);
+  padding: 2.5rem 2rem 2rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+#title-login {
+  font-weight: 700;
+  color: #fc6c6c;
+  letter-spacing: 1px;
+  font-family: 'Minecraft';
+}
+.form-label {
+  font-weight: 500;
+  color: #fc6c6c;
+}
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #fcbaba;
+  transition: border-color 0.2s;
+  background: #ffeaea;
+}
+.form-control:focus {
+  border-color: #fc6c6c;
+  box-shadow: 0 0 0 2px #ffd6d6;
+}
+.input-group .btn {
+  border-radius: 0 8px 8px 0;
+  background: #fc6c6c;
+  color: #fff;
+  border: none;
+}
+.input-group .btn:hover {
+  background: #d94a4a;
+}
+.span-errors {
+  color: #b71c1c;
+  font-size: 0.95em;
+  margin-top: 2px;
+  display: block;
+  transition: opacity 0.2s;
+}
+.span-errors.hidden {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+.btn-practical {
+  background: linear-gradient(90deg, #fc6c6c 0%, #d94a4a 100%);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 0;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(252, 108, 108, 0.08);
+}
+.btn-practical:disabled {
+  background: #ffd6d6;
+  color: #fff;
+  cursor: not-allowed;
+}
+.btn-practical:not(:disabled):hover {
+  background: linear-gradient(90deg, #d94a4a 0%, #fc6c6c 100%);
+  box-shadow: 0 4px 16px rgba(252, 108, 108, 0.16);
+}
+.login-links a {
+  color: #d94a4a;
+  font-size: 0.97em;
+  transition: color 0.2s;
+}
+.login-links a:hover {
+  color: #fc6c6c;
+  text-decoration: underline;
+}
+#img-checkpoint {
+  max-width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(252, 108, 108, 0.10);
+}
+@media (max-width: 991px) {
+  .row.w-75 {
+    width: 100% !important;
+  }
+  .login-box {
+    max-width: 100%;
+    padding: 2rem 1rem;
+  }
+  #img-checkpoint {
+    max-width: 70vw;
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .login-container {
+    padding: 2rem 0;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .col-md-6 {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  #img-checkpoint {
+    max-width: 90vw;
+  }
+}

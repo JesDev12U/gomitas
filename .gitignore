@@ -1,0 +1,16 @@
+.qodo
+.vscode
+*.env
+logs/*.log
+web.config
+uploads/fotos_users/*.jpg
+uploads/fotos_users/*.jpeg
+uploads/fotos_users/*.gif
+uploads/fotos_users/*.png
+uploads/fotos_productos/*.jpg
+uploads/fotos_productos/*.jpeg
+uploads/fotos_productos/*.gif
+uploads/fotos_productos/*.png
+
+/vendor/
+/node_modules/
