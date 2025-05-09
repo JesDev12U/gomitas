@@ -80,6 +80,10 @@ switch ($action) {
       $ctrl = new CtrlError404();
     }
     break;
+  case rtrim(RUTA_GESTOR_VENTAS, "/"):
+    require_once __DIR__ . "/../controller/admin/gestor_ventas/CtrlGestorVentas.php";
+    $ctrl = new CtrlGestorVentas();
+    break;
   default:
     // Página no encontrada
     require_once __DIR__ . "/../controller/errors/CtrlError404.php";

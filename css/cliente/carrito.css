@@ -1,0 +1,24 @@
+/* El input será pequeño pero el número siempre será visible y legible */
+.input-group.input-group-sm input[type="number"]::-webkit-inner-spin-button,
+.input-group.input-group-sm input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+@media (max-width: 576px) {
+  .input-group.input-group-sm input[type="number"] {
+    font-size: 1.1rem;
+    width: 2.5em;
+    min-width: 0;
+  }
+  .img-thumbnail {
+    width: 200px;
+  }
+}
+
+#title-carrito {
+  font-family: 'Cheese Potato';
+}
+
+.img-producto {
+  width: 300px;
+}
