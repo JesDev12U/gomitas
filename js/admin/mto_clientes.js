@@ -39,11 +39,8 @@ $btnSend.addEventListener("click", function (e) {
       : "¡Cliente registrado correctamente!",
     (json) => {
       if (json.usuario === "cliente") {
-        const $fotoUserHeader = document.getElementById("foto-user-header");
-        if ($fotoUserHeader && json.nuevos_datos.foto_path !== "")
-          $fotoUserHeader.src = json.nuevos_datos.foto_path;
-        const nuevoNombre = `${json.nuevos_datos.nombre} ${json.nuevos_datos.appat} ${json.nuevos_datos.apmat}`;
-        document.querySelector(".account p").textContent = nuevoNombre;
+        document.querySelector(".account p").textContent =
+          json.nuevos_datos.usuario;
         setTimeout(() => (location.href = this.dataset.url), 2000);
       } else {
         setTimeout(

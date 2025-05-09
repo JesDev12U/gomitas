@@ -63,6 +63,10 @@ body > * {
   border-bottom: none;
 }
 
+.navbar .container-fluid {
+  padding: 10px;
+}
+
 /* Títulos en navbar */
 .navbar h4 {
   color: white;
@@ -284,4 +288,62 @@ h3 {
     width: 100%;
     margin: 6px 0 0 0;
   }
+}
+/* CSS para opciones del nav en un sitio web de venta de gomitas - Estilo más suave y agradable a la vista */
+
+.navbar-nav .nav-item .nav-link {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #444444;
+  padding: 8px 16px;
+  margin: 0 8px;
+  border-radius: 20px;
+  background-color: #f9dede;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  background-color: #f8bebe;
+  color: #333333;
+  transform: scale(1.05);
+}
+
+.navbar-nav .nav-item .nav-link.active {
+  background-color: #f7a8a8;
+  color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.account p {
+  color: #b85959;
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-left: 15px;
+}
+
+/* Botones de cookies */
+#cookie-consent-banner {
+  background-color: #fdf0e0;
+  padding: 12px;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#cookie-consent-banner button {
+  background-color: #f7a8a8;
+  border: none;
+  color: #ffffff;
+  padding: 8px 12px;
+  margin-left: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#cookie-consent-banner button:hover {
+  background-color: #f89c9c;
 }

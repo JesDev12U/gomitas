@@ -1,0 +1,222 @@
+
+/* Estilos para la tienda de gomitas */
+
+.gomitas-row {
+  margin-top: 2rem;
+}
+
+.gomita-card {
+  border-radius: 18px;
+  border: 2px solid #ffb347;
+  background: linear-gradient(135deg, #fffbe7 60%, #ffe0ec 100%);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(255, 183, 197, 0.15);
+}
+
+.gomita-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(255, 183, 197, 0.25);
+}
+
+.gomita-img {
+  height: 220px;
+  object-fit: cover;
+  border-radius: 18px 18px 0 0;
+  background: #fff0f5;
+  border-bottom: 2px solid #ffb347;
+}
+
+.gomita-title {
+  color: #e17055;
+  font-weight: bold;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+.gomita-desc {
+  color: #636e72;
+  font-size: 1rem;
+}
+
+.gomita-precio {
+  color: #00b894;
+  font-size: 1.2rem;
+  background: #fffde7;
+  padding: 0.2em 0.7em;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(255, 183, 197, 0.07);
+}
+
+.gomita-btn {
+  background: linear-gradient(90deg, #ffb347 0%, #ff7675 100%);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  font-weight: bold;
+  padding: 0.5em 1.2em;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(255, 183, 197, 0.15);
+}
+
+.gomita-btn:hover {
+  background: linear-gradient(90deg, #ff7675 0%, #ffb347 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(255, 183, 197, 0.25);
+}
+
+.gomita-alert {
+  background: #ffe0ec;
+  color: #e17055;
+  border: 1px solid #ffb347;
+  border-radius: 12px;
+  padding: 1em;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 2em;
+}
+
+/* navbar */
+
+.navbar-toggler {
+  margin-bottom: 10px;
+}
+
+.gomitas-navbar {
+  background: #fcc0c0;
+  border-radius: 12px;
+  border: 2px solid #fc6c6c;
+  font-family: 'Cheese Potato', 'Arial Black', Arial, sans-serif;
+}
+
+.gomitas-navbar .nav-link,
+.gomitas-navbar .navbar-brand {
+  color: #f55555 !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gomitas-navbar .dropdown-menu {
+  background: #ffe0f2;
+  border: 2px solid #f65a5a;
+  border-radius: 8px;
+}
+
+.gomitas-navbar .dropdown-item {
+  color: #fc6c6c;
+  font-family: inherit;
+}
+
+.gomitas-navbar .dropdown-item:hover,
+.gomitas-navbar .dropdown-item:focus {
+  background: #fe9797;
+  color: #222;
+}
+
+
+/* Por defecto, el subnav queda debajo del navbar principal (desktop) */
+.gomitas-navbar.sticky-top {
+  top: 70px; /* Altura del navbar principal en desktop */
+  z-index: 1020;
+  transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 991.98px) {
+  body.mainnav-open .gomitas-navbar.sticky-top {
+    top: 320px; /* Altura del navbar principal cuando el menú está abierto */
+  }
+  body:not(.mainnav-open) .gomitas-navbar.sticky-top {
+    top: 70px; /* Altura normal cuando el menú está cerrado */
+  }
+}
+
+/* Modal de búsqueda */
+
+/* Modal de búsqueda - Estilo Tienda de Gomitas */
+.gomitas-modal .modal-content {
+  background: 
+    url('https://www.transparenttextures.com/patterns/diamond-upholstery.png'), /* textura suave */
+    linear-gradient(135deg, #fffbe7 0%, #ffe0ec 100%);
+  border: 4px solid #ffb347;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 0 8px #ffd6e0, 0 8px 32px 0 rgba(255, 183, 197, 0.18);
+  font-family: 'Cheese Potato', 'Arial Black', Arial, sans-serif;
+  color: #e17055;
+  position: relative;
+  overflow: hidden;
+}
+
+.gomitas-modal .modal-header, 
+.gomitas-modal .modal-footer {
+  background: linear-gradient(90deg, #ffb347 0%, #ff7675 100%);
+  border-bottom: 3px solid #ffb347;
+  border-top-left-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
+  color: #fff;
+  text-shadow: 1px 1px 0 #ffb347;
+  font-family: 'Cheese Potato', 'Arial Black', Arial, sans-serif;
+}
+
+.gomitas-modal .modal-footer {
+  border-top: 3px solid #ffb347;
+  border-bottom: none;
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+}
+
+.gomitas-modal .modal-title {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: #e17055;
+  text-shadow: 2px 2px 0 #fffde7;
+  font-family: 'Cheese Potato', 'Arial Black', Arial, sans-serif;
+}
+
+/* Botón de cierre estilo gomita */
+.gomitas-modal .minecraft-close,
+.gomitas-modal .gummy-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: linear-gradient(135deg, #ffb347 60%, #ff7675 100%);
+  border: 3px solid #ffb347;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  z-index: 10;
+  transition: background 0.2s, border 0.2s;
+  box-shadow: 0 2px 8px rgba(255, 183, 197, 0.18);
+  cursor: pointer;
+}
+
+.gomitas-modal .minecraft-close:hover,
+.gomitas-modal .gummy-close:hover {
+  background: linear-gradient(135deg, #ff7675 60%, #ffb347 100%);
+  border-color: #ff7675;
+}
+
+.gomitas-modal .minecraft-close span,
+.gomitas-modal .gummy-close span {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  line-height: 1;
+  user-select: none;
+}
+
+.gomitas-modal .modal-body {
+  background: rgba(255,255,255,0.92);
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  color: #e17055;
+  font-size: 1.1rem;
+  font-family: 'Cheese Potato', 'Arial Black', Arial, sans-serif;
+}
+
+.modal {
+  --bs-modal-width: 700px;
+}

@@ -82,6 +82,9 @@ switch ($page) {
   case 'administrador':
     include __DIR__ . "/routes/router_admin.php";
     break;
+  case 'cliente':
+    include __DIR__ . "/routes/router_cliente.php";
+    break;
   default:
     // Página no encontrada
     require_once __DIR__ . "/controller/errors/CtrlError404.php";

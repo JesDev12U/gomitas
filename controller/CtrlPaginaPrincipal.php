@@ -13,6 +13,26 @@ class CtrlPaginaPrincipal
     ["nombre" => ICON_INICIAR_SESION, "href" => SITE_URL . RUTA_LOGIN, "id" => "login"]
   ];
   public $title = "Principal";
+  public $datos = null;
+
+  function __construct()
+  {
+    $model = new Model();
+    $this->datos = $model->seleccionaRegistros(
+      "productos",
+      ["*"]
+    );
+  }
+
+  public static function busquedaProducto($query)
+  {
+    $model = new Model();
+    return $model->seleccionaRegistros(
+      "productos",
+      ["*"],
+      "nombre LIKE '%$query%'"
+    );
+  }
 
   public function renderContent()
   {
