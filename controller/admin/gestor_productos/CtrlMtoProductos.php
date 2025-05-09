@@ -5,9 +5,9 @@ require_once __DIR__ . "/../../../config/Global.php";
 
 class CtrlMtoProductos
 {
-  const VISTA = __DIR__ . "/../../../view/empleado/gestor_productos/mto_productos.php";
-  const CSS = __DIR__ . "/../../../css/empleado/mto_productos.css";
-  const JS = __DIR__ . "/../../../js/empleado/mto_productos.js";
+  const VISTA = __DIR__ . "/../../../view/admin/gestor_productos/mto_productos.php";
+  const CSS = __DIR__ . "/../../../css/admin/mto_productos.css";
+  const JS = __DIR__ . "/../../../js/admin/mto_productos.js";
   public $peticion;
   public $id_producto;
   public $nombre;

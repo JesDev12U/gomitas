@@ -12,16 +12,12 @@ function cargarDesHab() {
         formData,
         `${this.dataset.url}controller/admin/AsyncDesHabUsuarios.php`,
         "Advertencia",
-        this.dataset.usuario === "empleado"
-          ? "¿Está seguro de deshabilitar este empleado?"
-          : this.dataset.usuario === "cliente"
+        this.dataset.usuario === "cliente"
           ? "¿Está seguro de deshabilitar este cliente?"
           : this.dataset.usuario === "producto"
           ? "¿Está seguro de deshabilitar este producto?"
           : "¿Está seguro de deshabilitar este administrador?",
-        this.dataset.usuario === "empleado"
-          ? "¡Hecho! El empleado ha sido deshabilitado"
-          : this.dataset.usuario === "cliente"
+        this.dataset.usuario === "cliente"
           ? "¡Hecho! El cliente ha sido deshabilitado"
           : this.dataset.usuario === "producto"
           ? "¡Hecho! El producto ha sido deshabilitado"
@@ -47,16 +43,12 @@ function cargarDesHab() {
         formData,
         `${this.dataset.url}controller/admin/AsyncDesHabUsuarios.php`,
         "Advertencia",
-        this.dataset.usuario === "empleado"
-          ? "¿Está seguro de habilitar este empleado?"
-          : this.dataset.usuario === "cliente"
+        this.dataset.usuario === "cliente"
           ? "¿Está seguro de habilitar este cliente?"
           : this.dataset.usuario === "producto"
           ? "¿Está seguro de habilitar este producto?"
           : "¿Está seguro de habilitar este administrador?",
-        this.dataset.usuario === "empleado"
-          ? "¡Hecho! El empleado ha sido habilitado"
-          : this.dataset.usuario === "cliente"
+        this.dataset.usuario === "cliente"
           ? "¡Hecho! El cliente ha sido habilitado"
           : this.dataset.usuario === "producto"
           ? "¡Hecho! El producto ha sido habilitado"

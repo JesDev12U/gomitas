@@ -14,22 +14,14 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 $peticion = isset($_POST["peticion"]) ? $_POST["peticion"] : "";
 $id_producto = isset($_POST["id_producto"]) ? $_POST["id_producto"] : "";
 $nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : "";
-$categoria1 = isset($_POST["categoria1"]) ? $_POST["categoria1"] : "";
-$categoria2 = isset($_POST["categoria2"]) ? $_POST["categoria2"] : "";
-$categoria3 = isset($_POST["categoria3"]) ? $_POST["categoria3"] : "";
 $precio = isset($_POST["precio"]) ? $_POST["precio"] : "";
-$descripcion = isset($_POST["descripcion"]) ? $_POST["descripcion"] : "";
 $cantidad = isset($_POST["cantidad"]) ? $_POST["cantidad"] : "";
 
 if (
   !$peticion
   && !$id_producto
   && !$nombre
-  && !$categoria1
-  && !$categoria2
-  && !$categoria3
   && !$precio
-  && !$descripcion
   && !$cantidad
 ) {
   header('Content-Type: application/json');
@@ -38,11 +30,7 @@ if (
   $peticion = $data['peticion'] ?? null;
   $id_producto = $data['id_producto'] ?? null;
   $nombre = $data['nombre'] ?? null;
-  $categoria1 = $data['categoria1'] ?? null;
-  $categoria2 = $data['categoria2'] ?? null;
-  $categoria3 = $data['categoria3'] ?? null;
   $precio = $data['precio'] ?? null;
-  $descripcion = $data['descripcion'] ?? null;
   $cantidad = $data['cantidad'] ?? null;
 }
 
@@ -53,23 +41,15 @@ switch ($peticion) {
     if (!$ctrl->validaAtributos(
       null,
       $nombre,
-      $categoria1,
-      $categoria2,
-      $categoria3,
       $precio,
-      $descripcion,
       $cantidad
     )) {
       echo json_encode(["result" => 0, "msg" => "ERROR: Datos inválidos"]);
     } else {
-      $foto_path = guardarFoto(null, null, "producto", "fotos_productos");
+      $foto_path = guardarFoto(null, null, "producto");
       if ($ctrl->insertaRegistro(
         $nombre,
-        $categoria1,
-        $categoria2,
-        $categoria3,
         $precio,
-        $descripcion,
         $cantidad,
         $foto_path
       )) {
@@ -84,24 +64,16 @@ switch ($peticion) {
     if (!$ctrl->validaAtributos(
       $id_producto,
       $nombre,
-      $categoria1,
-      $categoria2,
-      $categoria3,
       $precio,
-      $descripcion,
       $cantidad
     )) {
       echo json_encode(["result" => 0, "msg" => "ERROR: Datos inválidos"]);
     } else {
-      $foto_path = guardarFoto("UPDATE", $id_producto, "producto", "fotos_productos");
+      $foto_path = guardarFoto("UPDATE", $id_producto, "producto");
       if ($ctrl->modificaRegistro(
         $id_producto,
         $nombre,
-        $categoria1,
-        $categoria2,
-        $categoria3,
         $precio,
-        $descripcion,
         $cantidad,
         $foto_path
       )) {

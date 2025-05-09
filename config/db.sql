@@ -26,7 +26,7 @@ CREATE TABLE
     productos (
         id_producto INT AUTO_INCREMENT PRIMARY KEY,
         nombre VARCHAR(100) NOT NULL,
-        precio DECIMAL(10, 2) NOT NULL,
+        precio DOUBLE NOT NULL,
         cantidad int not null,
         estado boolean not null,
         foto_path VARCHAR(255)

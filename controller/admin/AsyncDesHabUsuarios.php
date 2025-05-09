@@ -25,8 +25,8 @@ if ($usuario === "administrador") {
   require_once __DIR__ . "/gestor_clientes/CtrlMtoClientes.php";
   $ctrl = new CtrlMtoClientes("UPDATE");
 } else if ($usuario === "producto") {
-  // require_once __DIR__ . "/../empleado/gestor_productos/CtrlMtoProductos.php";
-  // $ctrl = new CtrlMtoProductos("UPDATE");
+  require_once __DIR__ . "/../admin/gestor_productos/CtrlMtoProductos.php";
+  $ctrl = new CtrlMtoProductos("UPDATE");
 } else {
   echo json_encode(["result" => 0, "msg" => "Usuario inválido"]);
   die();
