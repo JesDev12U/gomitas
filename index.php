@@ -79,6 +79,20 @@ switch ($page) {
       $ctrl = new CtrlLogin();
     }
     break;
+  case 'crear-cuenta':
+    if ($action !== null || $id !== null) {
+      require_once __DIR__ . "/controller/errors/CtrlError404.php";
+      http_response_code(404);
+      $ctrl = new CtrlError404();
+    } else if (!(isset($_SESSION["loggeado"]) && $_SESSION["loggeado"] === true)) {
+      require_once __DIR__ . "/controller/CtrlCrearCuenta.php";
+      $ctrl = new CtrlCrearCuenta();
+    }
+    break;
+  case 'recuperar-password':
+    require_once __DIR__ . "/controller/CtrlRecuperarPassword.php";
+    $ctrl = new CtrlRecuperarPassword();
+    break;
   case 'administrador':
     include __DIR__ . "/routes/router_admin.php";
     break;

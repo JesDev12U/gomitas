@@ -4,6 +4,7 @@ el de Mercado Pago. */
 ini_set('display_errors', E_ALL);
 require_once __DIR__ . "/../../../model/Model.php";
 require_once __DIR__ . "/CtrlCarrito.php";
+require_once __DIR__ . "/../../../classes/Email.php";
 session_start();
 
 if (!isset($_SESSION) || count($_SESSION) === 0) {
@@ -30,6 +31,7 @@ $id_venta = $model->agregaRegistroID(
     $totalCarrito
   ]
 );
+$email = $model->seleccionaRegistros("clientes", ["email"], "id_cliente=$id_cliente")[0]["email"];
 // Consulta al carrito del cliente
 $productos = CtrlCarrito::obtenerRegistros($id_cliente);
 // INSERT a detalle_pedido
@@ -52,5 +54,7 @@ foreach ($productos as $producto) {
 }
 
 CtrlCarrito::limpiarCarrito($id_cliente);
+$Email = new Email($email);
+$Email->notificarVenta($id_venta);
 
 echo json_encode(["result" => 1, "msg" => "Compra realizada correctamente"]);

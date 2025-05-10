@@ -45,8 +45,8 @@ class Email
       ob_start();
       $this->mail->addAddress($this->email);
       $this->mail->Subject = $caso === "creacion_cuenta"
-        ? 'Código para creación de cuenta en Checkpoint Game Store'
-        : "Código para recuperación de contraseña en Checkpoint Game Store";
+        ? 'Código para creación de cuenta en GomiBike'
+        : "Código para recuperación de contraseña en GomiBike";
       $this->mail->CharSet = 'UTF-8';
       $this->mail->isHTML(true);
 
@@ -69,7 +69,6 @@ class Email
       $html = ob_get_clean();
 
       $this->mail->Body = $html;
-      $this->mail->AddEmbeddedImage(__DIR__ . "/../img/logo1.png", 'logoCID');
       $this->mail->send();
     } catch (Exception $e) {
       echo "No se puede enviar el correo. Error: {$this->mail->ErrorInfo}";
@@ -77,5 +76,51 @@ class Email
       return null;
     }
     return $numeroAleatorio;
+  }
+
+  public function notificarVenta($id_venta)
+  {
+    try {
+      $model = new Model();
+      $ticket = $model->seleccionaRegistros(
+        "ventas",
+        [
+          "detalle_venta.id_venta",
+          "productos.foto_path",
+          "productos.nombre",
+          "detalle_venta.cantidad",
+          "detalle_venta.importe"
+        ],
+        "ventas.id_venta = $id_venta",
+        null,
+        "INNER JOIN detalle_venta ON ventas.id_venta = detalle_venta.id_venta
+        INNER JOIN productos ON detalle_venta.id_producto = productos.id_producto"
+      );
+      ob_start();
+      $this->mail->addAddress($this->email);
+      $this->mail->Subject = "Venta $id_venta creada exitosamente - GomiBike";
+      $this->mail->CharSet = 'UTF-8';
+      $this->mail->isHTML(true);
+      foreach ($ticket as $k => $item) {
+        $cid = 'img' . $item['id_venta'] . '_' . $k;
+        $foto_path = $item['foto_path'];
+        $this->mail->AddEmbeddedImage(str_replace(SITE_URL, __DIR__ . "/../", $foto_path), $cid);
+        $ticket[$k]['cid'] = $cid;
+      }
+
+      $css = file_get_contents(__DIR__ . "/../css/cliente/email_venta.css");
+      ob_start();
+      include __DIR__ . "/../view/cliente/email_venta.php";
+      $content = ob_get_clean();
+
+      include __DIR__ . "/../view/master_emails.php";
+      $html = ob_get_clean();
+
+      $this->mail->Body = $html;
+      $this->mail->send();
+    } catch (Exception $e) {
+      echo "No se puede enviar el correo. Error: {$this->mail->ErrorInfo}";
+      file_put_contents(__DIR__ . '/../logs/PHPMailer_error.log', date('c') . " - Error: " . $e->getMessage() . "\n", FILE_APPEND);
+    }
   }
 }

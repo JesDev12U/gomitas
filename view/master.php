@@ -72,7 +72,7 @@
           <?php if (is_array($ctrl->opciones) && count($ctrl->opciones) > 0): ?>
             <?php foreach ($ctrl->opciones as $opcion): ?>
               <?php
-              $sesionIniciada = isset($_SESSION) && count($_SESSION) !== 0;
+              $sesionIniciada = isset($_SESSION) && count($_SESSION) !== 0 && !isset($_SESSION["codigo"]);
               // Mostrar todas las opciones excepto "login" si hay sesión iniciada
               // Mostrar solo "login" si NO hay sesión iniciada
               if (($sesionIniciada && $opcion['id'] !== "login") ||

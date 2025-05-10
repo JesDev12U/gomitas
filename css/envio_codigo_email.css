@@ -1,0 +1,12 @@
+.code-box {
+  background: #f0f4fa;
+  color: #fc6c6c;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 6px;
+  padding: 18px 0;
+  border-radius: 6px;
+  text-align: center;
+  margin: 24px 0;
+  border: 1px dashed #f7b5b5;
+}

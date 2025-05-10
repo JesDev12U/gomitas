@@ -3,7 +3,7 @@ const $inputPassword = document.getElementById("password");
 let objInputs = [
   {
     id: "usuario",
-    type: "nombre",
+    type: "nombre-alfanumerico",
     spanError: "error-usuario",
   },
   {
